@@ -146,10 +146,13 @@
 
 
     .ctaRow{
-      display:grid; grid-template-columns: 1fr 1fr 1fr;
-      gap:10px; margin-top:10px; max-width:680px;
-    }
-    @media (max-width: 720px){ .ctaRow{grid-template-columns:1fr} }
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+  margin-top:10px;
+  max-width:680px;
+}
+@media (max-width: 720px){ .ctaRow{grid-template-columns:1fr} }
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -637,18 +640,18 @@
       </div>
 
       <div id="mentors" class="lecturer">
-        <img src="lecturer.jpeg" alt="ლექტორი" loading="lazy" decoding="async">
-        <div class="lecturerInfo">
-          <strong>ლექტორი</strong>
-          <span class="title">ასოცირებული პროფესორი, დოქტორი • ბიზნესის ადმინისტრირების დეკანი</span>
-          <div class="desc">
-<div class="lecturerChips">
-  <span class="chip">🎓 დოქტორი</span>
-  <span class="chip">🏛️ მრავალწლიანი აკადემიური და პრაქტიკული გამოცდილება</span>
-  <span class="chip">🙋 მხარდაჭერა კურსზე</span>
+  <img src="lecturer.jpeg" alt="ლექტორი" loading="lazy" decoding="async">
+  <div class="lecturerInfo">
+    <strong>ლექტორი</strong>
+    <span class="title">ასოცირებული პროფესორი, დოქტორი • ბიზნესის ადმინისტრირების დეკანი</span>
+    
+    <div class="lecturerChips">
+      <span class="chip">🎓 დოქტორი</span>
+      <span class="chip">🏛️ მრავალწლიანი აკადემიური და პრაქტიკული გამოცდილება</span>
+      <span class="chip">🙋 მხარდაჭერა კურსზე</span>
+    </div>
+  </div>
 </div>
-        </div>
-      </div>
     </section>
     <section class="card section pad reveal">
   <h3 style="margin:0 0 12px; font-size:16px;">
@@ -985,6 +988,7 @@ revealEls.forEach(el => revealObserver.observe(el));
 </div>
 </body>
 </html>
+
 
 
 
