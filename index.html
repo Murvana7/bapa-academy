@@ -230,6 +230,31 @@
     }
     @media (max-width: 980px){ .grid3{grid-template-columns:1fr 1fr} }
     @media (max-width: 640px){ .grid3{grid-template-columns:1fr} }
+    .includes{
+  margin:8px 0 0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:6px;
+}
+.includes li{
+  display:flex;
+  gap:8px;
+  align-items:flex-start;
+  font-size:12.6px;
+  color:var(--muted);
+  line-height:1.45;
+}
+.includes i{
+  color:var(--blue);
+  margin-top:2px;
+  font-size:14px;
+}
+.course .mini{
+  margin-top:8px;
+  font-size:12.3px;
+  color:var(--muted);
+}
 
     .course{
       padding:14px;
@@ -627,6 +652,14 @@
             <div>
               <h3>ბუღალტერიის 3 თვიანი კურსი</h3>
               <div class="meta">17 გაკვეთილი • პრაქტიკული დავალებები • ბათუმი</div>
+              <ul class="includes">
+  <li><i class="bi bi-check-circle-fill"></i> საფუძვლები + რეალური ქეისები</li>
+  <li><i class="bi bi-check-circle-fill"></i> პრაქტიკული დავალებები ყოველი თემის შემდეგ</li>
+  <li><i class="bi bi-check-circle-fill"></i> მხარდაჭერა კითხვებზე (WhatsApp)</li>
+  <li><i class="bi bi-check-circle-fill"></i> სერტიფიკატი (სურვილისამებრ)</li>
+</ul>
+
+<div class="mini">⏱ გრაფიკი: შეთანხმებით • 📍 ლოკაცია: ბათუმი</div>
             </div>
             <span class="level">პოპულარული</span>
           </div>
@@ -642,6 +675,13 @@
             <div>
               <h3>ერთიანი გადახდა (პაკეტი)</h3>
               <div class="meta">ერთიანად გადახდის შემთხვევაში • პირობები შეთანხმებით</div>
+              <ul class="includes">
+  <li><i class="bi bi-check-circle-fill"></i> იგივე პროგრამა (3 თვე)</li>
+  <li><i class="bi bi-check-circle-fill"></i> ფასდაკლება ერთიანი გადახდისთვის</li>
+  <li><i class="bi bi-check-circle-fill"></i> ადგილების დაჯავშნა სწრაფად</li>
+</ul>
+
+<div class="mini">💡 საუკეთესო ვარიანტი თუ მზად ხარ ერთიანად გადახდისთვის</div>
             </div>
             <span class="level">საუკეთესო</span>
           </div>
@@ -825,6 +865,7 @@ if (ctaWA) ctaWA.href = waLink(introMsg);
 </div>
 </body>
 </html>
+
 
 
 
