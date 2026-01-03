@@ -292,6 +292,55 @@
     .call-float:hover::after{
     opacity: 1;
     }
+    /* Mobile sticky CTA bar */
+.mobile-cta{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: none; /* only show on mobile */
+  padding: 10px 12px;
+  background: rgba(255,255,255,.92);
+  border-top: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+
+.mobile-cta .row{
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.mobile-cta a{
+  height: 52px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 900;
+  font-size: 13px;
+  background: #fff;
+}
+
+.mobile-cta a.primary{
+  border-color: transparent;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--blue2));
+}
+
+/* Show only on smaller screens */
+@media (max-width: 720px){
+  .mobile-cta{display:block;}
+  /* Make room so bar doesn't cover content */
+  .wrap{padding-bottom: 110px;}
+  /* Optional: hide the floating call button on mobile (bar replaces it) */
+  .call-float{display:none;}
+}
 
   </style>
 </head>
@@ -542,12 +591,26 @@
 
   const block = document.getElementById("counters");
   if (block) obs.observe(block);
+    // Mobile CTA links
+const ctaCall = document.getElementById("ctaCall");
+const ctaWA = document.getElementById("ctaWA");
+
+if (ctaCall) ctaCall.href = `tel:${BUSINESS.phoneInternational}`;
+if (ctaWA) ctaWA.href = waLink(introMsg);
 </script>
   <a id="btnCallFloat" class="call-float" href="#" aria-label="დარეკვა">
   <i class="bi bi-telephone-fill"></i>
   <span>დარეკვა</span>
 </a>
+  <div class="mobile-cta" aria-label="Quick actions">
+  <div class="row">
+    <a id="ctaCall" href="#"><i class="bi bi-telephone-fill"></i> დარეკვა</a>
+    <a id="ctaWA" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+    <a class="primary" href="registration.html"><i class="bi bi-pencil-square"></i> რეგისტრაცია</a>
+  </div>
+</div>
 </body>
 </html>
+
 
 
