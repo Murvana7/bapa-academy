@@ -322,6 +322,45 @@
     }
     .kpi .num{font-size:22px; font-weight:900}
     .kpi .lbl{color:var(--muted); font-size:12.5px; margin-top:4px}
+    /* Colored KPI boxes (end counters) */
+.kpi{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(30,102,208,.08), rgba(47,163,255,.10));
+}
+
+/* a soft colored stripe on top */
+.kpi::before{
+  content:"";
+  position:absolute;
+  left:0; top:0;
+  width:100%;
+  height:4px;
+  background: linear-gradient(135deg, var(--blue), var(--blue2));
+}
+
+/* Variant colors per box */
+.kpi:nth-child(1){
+  background: linear-gradient(135deg, rgba(47,163,255,.14), rgba(255,255,255,1));
+}
+.kpi:nth-child(2){
+  background: linear-gradient(135deg, rgba(30,102,208,.12), rgba(255,255,255,1));
+}
+.kpi:nth-child(3){
+  background: linear-gradient(135deg, rgba(16,185,129,.10), rgba(255,255,255,1)); /* green-ish */
+}
+
+/* Make the number/icon pop */
+.kpi .num{
+  color: var(--text);
+  letter-spacing: .2px;
+}
+
+/* If the num is an emoji (📍) make it bigger */
+.kpi .num:not([data-target]){
+  font-size: 26px;
+}
+
 
     /* Testimonials */
     .quote{
@@ -752,22 +791,24 @@
 
     <!-- COUNTERS (like their stats strip) -->
     <section class="card section pad">
-        <div class="kpi">
-          <div class="num" data-target="6">24</div>
-          <div class="lbl">გაკვეთილების რაოდენობა</div>
-        </div>
-        <div class="kpi">
-          <div class="num" data-target="3">3</div>
-          <div class="lbl">თვე</div>
-        </div>
-        <div class="kpi">
-  <div class="num">📍</div>
-  <div class="lbl">ლოკაცია • ბათუმი ე.თაყაიშვილის 5</div>
-</div>
-      </div>
-      <div style="margin-top:10px; color:var(--muted); font-size:12.5px;">
-      </div>
-    </section>
+  <div class="counters" id="counters">
+    <div class="kpi">
+      <div class="num" data-target="24">24</div>
+      <div class="lbl">გაკვეთილების რაოდენობა</div>
+    </div>
+
+    <div class="kpi">
+      <div class="num" data-target="3">3</div>
+      <div class="lbl">თვე</div>
+    </div>
+
+    <div class="kpi">
+      <div class="num">📍</div>
+      <div class="lbl">ლოკაცია • ბათუმი ე.თაყაიშვილის 5</div>
+    </div>
+  </div>
+</section>
+
 
     <!-- REVIEWS (like their testimonial section) -->
     <section id="reviews" class="card section pad">
@@ -917,6 +958,7 @@ revealEls.forEach(el => revealObserver.observe(el));
 </div>
 </body>
 </html>
+
 
 
 
