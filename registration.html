@@ -6,186 +6,260 @@
     <title>რეგისტრაცია • BAPA Academy</title>
 
     <style>
-      :root {
-        --bg: #f7fbff;
-        --card: #ffffff;
-        --line: #d7e6f7;
-        --text: #0b1b33;
-        --muted: #4b607c;
-        --blue: #1e66d0;
-        --blue2: #2fa3ff;
-        --shadow: 0 14px 35px rgba(11, 27, 51, 0.1);
-        --radius: 18px;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-          Arial;
-        color: var(--text);
-        background: radial-gradient(
-            900px 520px at 10% 0%,
-            rgba(47, 163, 255, 0.18),
-            transparent 55%
-          ),
-          radial-gradient(
-            900px 520px at 90% 10%,
-            rgba(30, 102, 208, 0.14),
-            transparent 60%
-          ),
-          var(--bg);
-        min-height: 100vh;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+  :root {
+    --bg: #f7fbff;
+    --card: rgba(255,255,255,.82);
+    --cardSolid:#ffffff;
+    --line: rgba(215, 230, 247, .9);
+    --text: #0b1b33;
+    --muted: #4b607c;
+    --blue: #1e66d0;
+    --blue2: #2fa3ff;
+    --shadow: 0 18px 50px rgba(11, 27, 51, 0.12);
+    --radius: 20px;
+    --max: 920px;
+  }
 
-      form {
-        max-width: 520px;
-        margin: 0 auto;
-      }
-      .wrap {
-        max-width: 860px;
-        margin: 0 auto;
-        padding: 22px 16px 52px;
-      }
+  * { box-sizing: border-box; }
 
-      .topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        margin-bottom: 16px;
-        flex-wrap: wrap;
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .logo {
-        width: 48px;
-        height: 48px;
-        border-radius: 16px;
-        background: #fff;
-        border: 1px solid var(--line);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-      .logo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .brand h1 {
-        margin: 0;
-        font-size: 16px;
-      }
-      .brand p {
-        margin: 3px 0 0;
-        color: var(--muted);
-        font-size: 12.5px;
-      }
+  body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color: var(--text);
+    background:
+      radial-gradient(900px 520px at 10% 0%, rgba(47, 163, 255, 0.20), transparent 55%),
+      radial-gradient(900px 520px at 90% 10%, rgba(30, 102, 208, 0.16), transparent 60%),
+      radial-gradient(700px 420px at 50% 105%, rgba(47, 163, 255, 0.10), transparent 55%),
+      var(--bg);
+    min-height: 100vh;
+  }
 
-      .card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-        padding: 18px;
-      }
-      h2 {
-        margin: 0;
-        font-size: 22px;
-      }
-      .desc {
-        margin: 8px 0 0;
-        color: var(--muted);
-        line-height: 1.6;
-        font-size: 13.5px;
-      }
+  a { color: inherit; text-decoration: none; }
 
-      .btnRow {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 10px;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 12px 14px;
-        border-radius: 14px;
-        border: 1px solid var(--line);
-        background: #ffffff;
-        color: var(--text);
-        font-weight: 800;
-        font-size: 13px;
-        cursor: pointer;
-        transition: transform 0.08s ease, box-shadow 0.2s ease,
-          border-color 0.2s ease;
-        user-select: none;
-      }
-      .btn:hover {
-        transform: translateY(-1px);
-        border-color: #bcd6f5;
-        box-shadow: 0 10px 20px rgba(11, 27, 51, 0.08);
-      }
-      .btn.primary {
-        border-color: transparent;
-        color: #fff;
-        background: linear-gradient(135deg, var(--blue), var(--blue2));
-      }
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 22px 16px 84px;
+  }
 
-      .mini {
-        margin-top: 12px;
-        padding: 12px;
-        border: 1px dashed #bcd6f5;
-        border-radius: 14px;
-        background: #ffffff;
-        color: var(--muted);
-        font-size: 12.6px;
-        line-height: 1.55;
-      }
+  /* Top bar */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
 
-      form {
-        display: grid;
-        gap: 10px;
-        margin-top: 14px;
-      }
-      label {
-        font-size: 12px;
-        color: var(--muted);
-      }
-      input,
-      select,
-      textarea {
-        width: 100%;
-        padding: 12px 12px;
-        border-radius: 14px;
-        border: 1px solid var(--line);
-        background: #f8fbff;
-        color: var(--text);
-        outline: none;
-      }
-      textarea {
-        min-height: 92px;
-        resize: vertical;
-      }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
-      .hint {
-        margin-top: 12px;
-        color: rgba(75, 96, 124, 0.95);
-        font-size: 12px;
-        line-height: 1.55;
-      }
-    </style>
+  .logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .logo img { width: 100%; height: 100%; object-fit: cover; }
+
+  .brand h1 {
+    margin: 0;
+    font-size: 16px;
+    letter-spacing: .2px;
+  }
+  .brand p {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 12.5px;
+  }
+
+  /* Card */
+  .card {
+    position: relative;
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    padding: 18px;
+  }
+
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background:
+      radial-gradient(600px 220px at 10% 0%, rgba(47,163,255,.22), transparent 55%),
+      radial-gradient(600px 220px at 90% 0%, rgba(30,102,208,.18), transparent 60%);
+    opacity:.55;
+    pointer-events:none;
+  }
+
+  .cardInner { position: relative; }
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: .2px;
+  }
+
+  .desc {
+    margin: 8px 0 0;
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 13.7px;
+  }
+
+  /* Pills / info */
+  .mini {
+    margin-top: 14px;
+    padding: 12px 12px;
+    border: 1px dashed rgba(188, 214, 245, .95);
+    border-radius: 16px;
+    background: rgba(255,255,255,.7);
+    color: var(--muted);
+    font-size: 12.7px;
+    line-height: 1.55;
+  }
+
+  /* Buttons */
+  .btnRow { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.86);
+    color: var(--text);
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+    transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    border-color: rgba(188,214,245,1);
+    box-shadow: 0 14px 26px rgba(11, 27, 51, 0.10);
+    background: #fff;
+  }
+
+  .btn.primary {
+    border-color: transparent;
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue), var(--blue2));
+    box-shadow: 0 16px 32px rgba(30,102,208,.25);
+  }
+
+  .btn.primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 20px 40px rgba(30,102,208,.28);
+  }
+
+  /* Form layout */
+  form {
+    display: grid;
+    gap: 12px;
+    margin-top: 14px;
+    max-width: 560px;
+  }
+
+  .field {
+    display: grid;
+    gap: 6px;
+  }
+
+  label {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: .2px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 13px 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(215,230,247,1);
+    background: rgba(248, 251, 255, .92);
+    color: var(--text);
+    outline: none;
+    transition: box-shadow .2s ease, border-color .2s ease, transform .08s ease;
+  }
+
+  textarea { min-height: 96px; resize: vertical; }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: rgba(47,163,255,.85);
+    box-shadow: 0 0 0 4px rgba(47, 163, 255, 0.18);
+  }
+
+  /* Subtle “section header line” */
+  .divider {
+    margin: 12px 0 4px;
+    height: 1px;
+    background: rgba(215,230,247,.9);
+    border: 0;
+  }
+
+  .hint {
+    margin-top: 12px;
+    color: rgba(75, 96, 124, 0.95);
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  /* Sticky mobile CTA */
+  .stickyCta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(247, 251, 255, .88);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(215,230,247,.9);
+    display: none;
+    z-index: 50;
+  }
+
+  .stickyInner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .stickyNote {
+    flex: 1;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.25;
+  }
+
+  @media (max-width: 720px) {
+    .wrap { padding-bottom: 120px; }
+    .stickyCta { display: block; }
+    form { max-width: 100%; }
+    h2 { font-size: 22px; }
+  }
+</style>
+
   </head>
 
   <body>
@@ -207,51 +281,51 @@
       </div>
 
       <section class="card">
-        <h2>რეგისტრაცია</h2>
-        <p class="desc">
-          შეავსე ფორმა და დააჭირე “გაგზავნა WhatsApp-ზე”. გაიხსნება წინასწარ
-          შევსებული შეტყობინება.
-        </p>
+  <div class="cardInner">
+    <h2>რეგისტრაცია</h2>
+    <p class="desc">
+      შეავსე ფორმა და დააჭირე “გაგზავნა WhatsApp-ზე”. გაიხსნება წინასწარ
+      შევსებული შეტყობინება.
+    </p>
 
-        <div class="mini" id="priceInfo"></div>
+    <div class="mini" id="priceInfo"></div>
 
-        <form id="regForm">
-          <div>
-            <label for="name">სახელი და გვარი</label>
-            <input id="name" required placeholder="მაგ: ნინო ბერიძე" />
-          </div>
+    <hr class="divider" />
 
-          <div>
-            <label for="phone">ტელეფონი (არასავალდებულო)</label>
-            <input id="phone" placeholder="+995 ..." />
-          </div>
+    <form id="regForm">
+      <div class="field">
+        <label for="name">სახელი და გვარი</label>
+        <input id="name" required placeholder="მაგ: ნინო ბერიძე" />
+      </div>
 
-          <div>
-            <label for="plan">აირჩიე პაკეტი</label>
-            <select id="plan">
-              <option value="3m">3 თვე (₾750)</option>
-              <option value="year">ერთიანი გადახდა (₾600)</option>
-            </select>
-          </div>
+      <div class="field">
+        <label for="phone">ტელეფონი (არასავალდებულო)</label>
+        <input id="phone" placeholder="+995 ..." />
+      </div>
 
-          <div>
-            <label for="msg">შენიშვნა (არასავალდებულო)</label>
-            <textarea
-              id="msg"
-              placeholder="მკითხე გრაფიკზე, ლოკაციაზე, დაწყების თარიღზე..."
-            ></textarea>
-          </div>
+      <div class="field">
+        <label for="plan">აირჩიე პაკეტი</label>
+        <select id="plan">
+          <option value="3m">3 თვე (₾750)</option>
+          <option value="year">ერთიანი გადახდა (₾600)</option>
+        </select>
+      </div>
 
-          <button class="btn primary" type="submit">
-            გაგზავნა WhatsApp-ზე
-          </button>
-        </form>
+      <div class="field">
+        <label for="msg">შენიშვნა (არასავალდებულო)</label>
+        <textarea id="msg" placeholder="მკითხე გრაფიკზე, ლოკაციაზე, დაწყების თარიღზე..."></textarea>
+      </div>
 
-        <p class="hint">
-          კონფიდენციალურობა: გვერდი მონაცემებს არ ინახავს ბაზაში — მხოლოდ
-          WhatsApp შეტყობინებას ქმნის.
-        </p>
-      </section>
+      <button class="btn primary" type="submit">გაგზავნა WhatsApp-ზე</button>
+    </form>
+
+    <p class="hint">
+      კონფიდენციალურობა: გვერდი მონაცემებს არ ინახავს ბაზაში — მხოლოდ
+      WhatsApp შეტყობინებას ქმნის.
+    </p>
+  </div>
+</section>
+
     </div>
 
     <script>
@@ -301,7 +375,19 @@
 
         window.open(waLink(message), "_blank", "noopener");
       });
+      document.getElementById("stickySend").addEventListener("click", () => {
+  document.querySelector('#regForm button[type="submit"]').click();
+});
+
     </script>
+    <div class="stickyCta">
+  <div class="stickyInner">
+    <div class="stickyNote">შეავსე ფორმა და გააგზავნე WhatsApp-ზე</div>
+    <button class="btn primary" type="button" id="stickySend">გაგზავნა</button>
+  </div>
+</div>
+
   </body>
 </html>
+
 
