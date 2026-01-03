@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BAPA Academy • ბუღალტერიის კურსი ბათუმში</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    :root{
+      --bg:#f7fbff;
+      --card:#ffffff;
+      --line:#d7e6f7;
+      --text:#0b1b33;
+      --muted:#4b607c;
+      --blue:#1e66d0;
+      --blue2:#2fa3ff;
+      --shadow: 0 14px 35px rgba(11,27,51,.10);
+      --radius:18px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 10% 0%, rgba(47,163,255,.18), transparent 55%),
+        radial-gradient(900px 520px at 90% 10%, rgba(30,102,208,.14), transparent 60%),
+        var(--bg);
+      min-height:100vh;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 16px 64px}
+
+    /* Topbar */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      margin-bottom:16px; flex-wrap:wrap;
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:52px; height:52px; border-radius:16px;
+      background:#fff; border:1px solid var(--line);
+      box-shadow:var(--shadow); overflow:hidden;
+      display:grid; place-items:center;
+    }
+    .logo img{width:100%; height:100%; object-fit:cover}
+    .brand h1{margin:0; font-size:16px; letter-spacing:.2px}
+    .brand p{margin:3px 0 0; color:var(--muted); font-size:12.5px}
+
+    .nav{
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+      color:var(--muted); font-size:12.5px;
+    }
+    .nav a{border-bottom:1px dashed #bcd6f5; padding-bottom:2px}
+    .pill{
+      padding:10px 12px; border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.75);
+      color:var(--muted);
+      font-size:12.5px; white-space:nowrap;
+    }
+
+    /* Sections */
+    .section{margin-top:16px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .pad{padding:18px}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      padding:18px;
+    }
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
+
+    .hero h2{margin:0 0 10px; font-size:34px; line-height:1.12}
+    .hero p{margin:0 0 14px; color:var(--muted); font-size:14.5px; line-height:1.65; max-width:72ch}
+
+    .badges{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 16px}
+    .badge{
+      font-size:12px; padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background:#f2f8ff;
+    }
+
+    .ctaRow{
+      display:grid; grid-template-columns: 1fr 1fr 1fr;
+      gap:10px; margin-top:10px; max-width:680px;
+    }
+    @media (max-width: 720px){ .ctaRow{grid-template-columns:1fr} }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff; color:var(--text);
+      font-weight:800; font-size:13px; cursor:pointer;
+      transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+      user-select:none;
+      width:100%;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:#bcd6f5; box-shadow:0 10px 20px rgba(11,27,51,.08)}
+    .btn.primary{
+      border-color:transparent; color:#fff;
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+    }
+
+    /* Lecturer (image left) */
+    .lecturer{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      padding:14px;
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+    }
+    .lecturer img{
+      width:180px; max-width:180px; height:auto;
+      object-fit:contain;
+      border-radius:12px;
+      background:#f8fbff;
+      border:1px solid var(--line);
+      flex-shrink:0;
+    }
+    @media (max-width: 640px){
+      .lecturer{flex-direction:column; align-items:center; text-align:center}
+      .lecturer img{width:100%; max-width:260px}
+    }
+    .lecturerInfo strong{display:block; font-size:13.5px}
+    .lecturerInfo .title{
+      display:block; margin-top:6px;
+      font-weight:800; color:#0f3e86; font-size:12.8px; line-height:1.45;
+    }
+    .lecturerInfo .desc{
+      margin-top:10px; color:var(--muted); font-size:12.8px; line-height:1.55;
+    }
+
+    /* Courses */
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .grid3{grid-template-columns:1fr 1fr} }
+    @media (max-width: 640px){ .grid3{grid-template-columns:1fr} }
+
+    .course{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#f8fbff;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height: 170px;
+    }
+    .courseTop{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+    }
+    .level{
+      font-size:11px; font-weight:800;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid #bcd6f5; background:#eaf3ff; color:#0f3e86;
+      white-space:nowrap;
+    }
+    .course h3{margin:0; font-size:14px}
+    .course .meta{color:var(--muted); font-size:12.5px; line-height:1.45}
+    .priceRow{
+      display:flex; align-items:baseline; gap:8px; margin-top:auto;
+    }
+    .priceNow{font-weight:900; font-size:16px}
+    .priceOld{color:rgba(75,96,124,.75); text-decoration:line-through; font-size:12.5px}
+
+    /* Counters */
+    .counters{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .counters{grid-template-columns:1fr 1fr} }
+    .kpi{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+    .kpi .num{font-size:22px; font-weight:900}
+    .kpi .lbl{color:var(--muted); font-size:12.5px; margin-top:4px}
+
+    /* Testimonials */
+    .quote{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:13px;
+    }
+    .who{margin-top:10px; color:#0f3e86; font-weight:800; font-size:12.5px}
+
+    /* FAQ */
+    details{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      padding:12px 12px;
+    }
+    details + details{margin-top:10px}
+    summary{
+      cursor:pointer;
+      font-weight:800;
+      color:var(--text);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .faqA{margin-top:8px; color:var(--muted); font-size:12.8px; line-height:1.6}
+
+    /* Footer */
+    footer{
+      margin-top:18px;
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:#fff;
+      box-shadow:var(--shadow);
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.6;
+    }
+    .footerRow{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center}
+    .social{
+      display:inline-flex; align-items:center; gap:8px; font-weight:800;
+      color:var(--muted);
+    }
+    .social i{font-size:15px; color:#1877f2}
+    .follow{margin:8px 0 0; font-size:12.5px}
+
+    /* Floating Call button */
+    .call-float {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: auto;
+    padding: 0 18px;
+    gap: 8px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1e66d0, #2fa3ff);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 14px 30px rgba(11, 27, 51, 0.25);
+    z-index: 999;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .call-float span {
+    font-size: 13px;
+    font-weight: 800;
+    }
+    .call-float:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(11, 27, 51, 0.35);
+    }
+    .call-float::after{
+    content: "დარეკვა";
+    position: absolute;
+    right: 70px;
+    background: #0b1b33;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease;
+    }
+    .call-float:hover::after{
+    opacity: 1;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo"><img src="logo.jpeg" alt="BAPA Academy ლოგო"></div>
+        <div>
+          <h1>BAPA Academy • ბუღალტერიის კურსი ბათუმში</h1>
+          <p>ბათუმი • აკადემიური ფორმატი • პრაქტიკული სწავლება</p>
+        </div>
+      </div>
+
+      <div class="nav">
+        <a href="#courses">კურსი</a>
+        <a href="#mentors">ლექტორი</a>
+        <a href="#reviews">გამოხმაურება</a>
+        <a href="#faq">FAQ</a>
+        <a href="registration.html">რეგისტრაცია</a>
+      </div>
+
+      <div class="pill">📍 ბათუმი ე.თაყაიშვილის 5 • ✅ მცირე ჯგუფები • 🧾 პრაქტიკა • ⏱ გრაფიკი შეთანხმებით</div>
+    </div>
+
+    <!-- HERO -->
+    <section class="card section hero">
+      <div>
+        <h2>გადადგი შემდეგი ნაბიჯი<br>ბუღალტერიაში</h2>
+        <p>
+          სწავლება არის მარტივი, სტრუქტურირებული და პრაქტიკაზე ორიენტირებული.
+          მიზანი: რეალური დოკუმენტებით და მაგალითებით დაეუფლო საბუღალტრო საფუძვლებს.
+        </p>
+
+        <div class="badges">
+          <div class="badge">📘 დამწყებთათვის</div>
+          <div class="badge">🧾 რეალური ქეისები</div>
+          <div class="badge">🧠 ნაბიჯ-ნაბიჯ ახსნა</div>
+          <div class="badge">🎓 სერტიფიკატი</div>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="registration.html">რეგისტრაცია</a>
+          <a class="btn" id="btnWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+      <div id="mentors" class="lecturer">
+        <img src="lecturer.jpeg" alt="ლექტორი">
+        <div class="lecturerInfo">
+          <strong>ლექტორი</strong>
+          <span class="title">ასოცირებული პროფესორი, დოქტორი • ბიზნესის ადმინისტრირების დეკანი</span>
+          <div class="desc">
+            მრავალწლიანი აკადემიური და პრაქტიკული გამოცდილება •
+            ბუღალტერიის სწავლება რეალურ მაგალითებზე •
+            მხარდაჭერა კითხვებზე და პრაქტიკულ დავალებებზე.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES (like “selected courses” section style) -->
+    <section id="courses" class="card section pad">
+      <h3 style="margin:0 0 10px; font-size:16px;">რჩეული კურსი</h3>
+      <div class="grid3">
+        <article class="course">
+          <div class="courseTop">
+            <div>
+              <h3>ბუღალტერიის 3 თვიანი კურსი</h3>
+              <div class="meta">17 გაკვეთილი • პრაქტიკული დავალებები • ბათუმი</div>
+            </div>
+            <span class="level">პოპულარული</span>
+          </div>
+          <div class="priceRow">
+            <div class="priceNow">₾745</div>
+            <div class="priceOld">₾900</div>
+          </div>
+          <a class="btn primary" href="registration.html">რეგისტრაცია</a>
+        </article>
+
+        <article class="course">
+          <div class="courseTop">
+            <div>
+              <h3>ერთიანი გადახდა (პაკეტი)</h3>
+              <div class="meta">ერთიანად გადახდის შემთხვევაში • პირობები შეთანხმებით</div>
+            </div>
+            <span class="level">საუკეთესო</span>
+          </div>
+          <div class="priceRow">
+            <div class="priceNow">₾600</div>
+            <div class="priceOld">₾745</div>
+          </div>
+          <a class="btn primary" href="registration.html">რეგისტრაცია</a>
+        </article>
+
+        <article class="course">
+          <div class="courseTop">
+            <div>
+              <h3>კონსულტაცია / მიმართულების არჩევა</h3>
+              <div class="meta">გრაფიკის, თემების და მიზნების შეთანხმება</div>
+            </div>
+            <span class="level">უფასო</span>
+          </div>
+          <div class="priceRow">
+            <div class="priceNow">₾0</div>
+            <div class="priceOld">—</div>
+          </div>
+          <a class="btn" id="btnWhatsApp2" href="#" target="_blank" rel="noopener">მომწერე WhatsApp-ზე</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- COUNTERS (like their stats strip) -->
+    <section class="card section pad">
+      <div class="counters" id="counters">
+        <div class="kpi">
+          <div class="num" data-target="120">0</div>
+          <div class="lbl">აქტიური სტუდენტი</div>
+        </div>
+        <div class="kpi">
+          <div class="num" data-target="6">0</div>
+          <div class="lbl">გაკვეთილების რაოდენობა</div>
+        </div>
+        <div class="kpi">
+          <div class="num" data-target="3">3</div>
+          <div class="lbl">თვე</div>
+        </div>
+        <div class="kpi">
+          <div class="num" data-target="1">1</div>
+          <div class="lbl">ლოკაცია • ბათუმი ე.თაყაიშვილის 5</div>
+        </div>
+      </div>
+      <div style="margin-top:10px; color:var(--muted); font-size:12.5px;">
+      </div>
+    </section>
+
+    <!-- REVIEWS (like their testimonial section) -->
+    <section id="reviews" class="card section pad">
+      <h3 style="margin:0 0 10px; font-size:16px;">სტუდენტების გამოხმაურება</h3>
+      <div class="grid3">
+        <div class="quote">
+          „კურსი იყო ძალიან პრაქტიკული — თითოეული თემის შემდეგ ვაკეთებდით დავალებებს,
+          რაც დამეხმარა მასალის სწრაფად ათვისებაში.“
+          <div class="who">— კურსდამთავრებული</div>
+        </div>
+        <div class="quote">
+          „ყველა კითხვა დეტალურად აიხსნებოდა. ყველაზე მეტად მომეწონა სტრუქტურა: საფუძვლიდან რეალურ მაგალითებამდე.“
+          <div class="who">— სტუდენტი</div>
+        </div>
+        <div class="quote">
+          „გაკვეთილების ტემპი და პრაქტიკული ნაწილი იდეალურად იყო მორგებული დამწყებთათვის.“
+          <div class="who">— სტუდენტი</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ (like their FAQ accordion) -->
+    <section id="faq" class="card section pad">
+      <h3 style="margin:0 0 10px; font-size:16px;">ხშირად დასმული შეკითხვები</h3>
+
+      <details>
+        <summary>როგორ ხდება რეგისტრაცია?</summary>
+        <div class="faqA">დააჭირე „რეგისტრაცია“-ს და შეავსე ფორმა — გაგზავნა ხდება WhatsApp შეტყობინებით.</div>
+      </details>
+
+      <details>
+        <summary>შესაძლებელია გადახდის გადანაწილება?</summary>
+        <div class="faqA">დიახ, პირობები შეთანხმებით. მოგვწერე WhatsApp-ზე დეტალებისთვის.</div>
+      </details>
+
+      <details>
+        <summary>სერტიფიკატი გაიცემა?</summary>
+        <div class="faqA">კურსის წარმატებით დასრულების შემთხვევაში გაიცემა სერტიფიკატი (სურვილისამებრ).</div>
+      </details>
+
+      <details>
+        <summary>სად ტარდება ლექციები?</summary>
+        <div class="faqA">ბათუმში ე.თაყაიშვილის 5 : გრაფიკი შეთანხმებით (მცირე ჯგუფები).</div>
+      </details>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footerRow">
+        <div><strong style="color:var(--text)">BAPA Academy</strong> • ბათუმი</div>
+        <a id="btnFacebook" class="social" href="#" target="_blank" rel="noopener">
+          <i class="bi bi-facebook"></i> Facebook
+        </a>
+      </div>
+      <div class="follow">გამოგვყევით Facebook-ზე მეტი ინფორმაციისა და სიახლეებისთვის</div>
+      <div style="margin-top:10px;">© <span id="year"></span> BAPA Academy. All rights reserved.</div>
+    </footer>
+
+  </div>
+
+  <script>
+    const BUSINESS = {
+      city: "ბათუმი",
+      phoneInternational: "+995574323377",
+      whatsappNumber: "995574323377", // digits only for wa.me
+      facebookUrl: "https://www.facebook.com/p/Bapa-Academy-61563066155391/"
+    };
+
+    const PRICE_3M = 745;
+    const PRICE_YEAR = 600;
+
+    const btnFacebook = document.getElementById("btnFacebook");
+    if (btnFacebook) btnFacebook.href = BUSINESS.facebookUrl;
+
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    function waLink(text){
+      return `https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent(text)}`;
+    }
+    const btnCallFloat = document.getElementById("btnCallFloat");
+    if (btnCallFloat) btnCallFloat.href = `tel:${BUSINESS.phoneInternational}`;
+
+    const introMsg = `გამარჯობა! მაინტერესებს ბუღალტერიის კურსი ბათუმში. გთხოვთ მითხრათ გრაფიკი და დაწყების თარიღი.`;
+    const w1 = document.getElementById("btnWhatsApp");
+]   const w2 = document.getElementById("btnWhatsApp2");
+    if (w1) w1.href = waLink(introMsg);
+    if (w2) w2.href = waLink(introMsg);
+
+    // Simple counter animation (optional)
+    const counters = document.querySelectorAll(".num[data-target]");
+    const startCounters = () => {
+      counters.forEach(el => {
+        const target = Number(el.dataset.target || 0);
+        let cur = 0;
+        const steps = 36;
+        const inc = target / steps;
+        const tick = () => {
+          cur += inc;
+          if (cur >= target) { el.textContent = String(target); return; }
+          el.textContent = String(Math.max(0, Math.floor(cur)));
+          requestAnimationFrame(tick);
+        };
+        tick();
+      });
+    };
+
+    // Start when visible
+    const obs = new IntersectionObserver((entries) => {
+      if (entries.some(e => e.isIntersecting)) { startCounters(); obs.disconnect(); }
+    }, { threshold: 0.2 });
+    const block = document.getElementById("counters");
+    if (block) obs.observe(block);
+     <!-- Floating Call Button -->
+<a
+  id="btnCallFloat"
+  class="call-float"
+  href="#"
+  aria-label="დარეკვა"
+></a>
+  </script>
+  <a id="btnCallFloat" class="call-float" href="#" aria-label="დარეკვა">
+  <i class="bi bi-telephone-fill"></i>
+  <span>დარეკვა</span>
+</a>
+</body>
+</html>
