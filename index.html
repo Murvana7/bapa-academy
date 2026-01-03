@@ -51,13 +51,20 @@
   color:var(--text);
   min-height:100vh;
 
-  /* layered background */
   background:
-    linear-gradient(
-      rgba(247,251,255,0.92),
-      rgba(247,251,255,0.92)
-    ),
+    linear-gradient(rgba(247,251,255,0.92), rgba(247,251,255,0.92)),
     url("background.jpg") center / cover no-repeat;
+}
+
+@media (max-width: 720px){
+  body{
+    background:
+      linear-gradient(
+        rgba(247,251,255,0.96),
+        rgba(247,251,255,0.96)
+      ),
+      url("background.jpg") center / cover no-repeat;
+  }
 }
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:22px 16px 64px}
@@ -395,17 +402,6 @@
   overflow: hidden;
   background: linear-gradient(135deg, rgba(30,102,208,.08), rgba(47,163,255,.10));
 }
-    @media (max-width: 720px){
-  body{
-    background:
-      linear-gradient(
-        rgba(247,251,255,0.96),
-        rgba(247,251,255,0.96)
-      ),
-      url("background.jpg") center / cover no-repeat;
-  }
-}
-
 /* a soft colored stripe on top */
 .kpi::before{
   content:"";
@@ -1040,6 +1036,7 @@ revealEls.forEach(el => revealObserver.observe(el));
 </div>
 </body>
 </html>
+
 
 
 
