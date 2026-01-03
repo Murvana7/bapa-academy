@@ -110,13 +110,40 @@
     .hero h2{margin:0 0 10px; font-size:34px; line-height:1.12}
     .hero p{margin:0 0 14px; color:var(--muted); font-size:14.5px; line-height:1.65; max-width:72ch}
 
-    .badges{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 16px}
-    .badge{
-      font-size:12px; padding:8px 10px; border-radius:999px;
-      border:1px solid var(--line);
-      color:var(--muted);
-      background:#f2f8ff;
-    }
+    /* Mobile-friendly badges */
+.badges{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge{
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: #f2f8ff;
+  white-space: nowrap; /* desktop default */
+}
+
+/* On mobile: make badges fit nicely in 2 columns */
+@media (max-width: 520px){
+  .badges{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .badge{
+    width: 100%;
+    padding: 8px 9px;
+    font-size: 11.5px;
+    white-space: normal;      /* allow wrapping */
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
 
     .ctaRow{
       display:grid; grid-template-columns: 1fr 1fr 1fr;
@@ -953,11 +980,12 @@ revealEls.forEach(el => revealObserver.observe(el));
   <div class="row">
     <a id="ctaCall" href="#"><i class="bi bi-telephone-fill"></i> დარეკვა</a>
     <a id="ctaWA" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
-    <a class="primary" href="registration.html"><i class="bi bi-pencil-square"></i> რეგისტრაცია</a>
+   <a class="primary" href="registration.html"><i class="bi bi-pencil-square"></i> რეგისტრაცია</a>
   </div>
 </div>
 </body>
 </html>
+
 
 
 
