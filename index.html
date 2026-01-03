@@ -102,7 +102,50 @@
   flex-wrap: wrap;
   gap: 8px;
 }
+.hero{
+  position: relative;
+  padding: 22px;
+}
 
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: var(--radius);
+  background: radial-gradient(520px 260px at 15% 10%, rgba(47,163,255,.20), transparent 60%);
+  pointer-events:none;
+}
+    body{ letter-spacing: .1px; }
+h1,h2,h3,h4{ letter-spacing: .2px; }
+
+.hero h2{
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.08;
+}
+
+.hero p{
+  font-size: 15px;
+  line-height: 1.75;
+}
+    .card{
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.card:hover{
+  transform: translateY(-2px);
+  border-color: #bcd6f5;
+  box-shadow: 0 16px 40px rgba(11,27,51,.12);
+}
+    .topbar{
+  position: sticky;
+  top: 10px;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(247,251,255,.70);
+  border: 1px solid rgba(215,230,247,.8);
+  border-radius: 16px;
+  padding: 12px 14px;
+}
 /* Mobile optimization */
 @media (max-width: 720px){
   .pill-group{
@@ -1036,6 +1079,7 @@ revealEls.forEach(el => revealObserver.observe(el));
 </div>
 </body>
 </html>
+
 
 
 
