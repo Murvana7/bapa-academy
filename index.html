@@ -227,6 +227,44 @@
     }
     summary::-webkit-details-marker{display:none}
     .faqA{margin-top:8px; color:var(--muted); font-size:12.8px; line-height:1.6}
+    /* Outcomes */
+.outcomes{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+}
+
+@media (max-width: 980px){
+  .outcomes{grid-template-columns:1fr 1fr;}
+}
+@media (max-width: 640px){
+  .outcomes{grid-template-columns:1fr;}
+}
+
+.outcome{
+  padding:16px;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:#fff;
+  box-shadow:var(--shadow);
+}
+
+.outcome i{
+  font-size:22px;
+  color:var(--blue);
+}
+
+.outcome h4{
+  margin:10px 0 6px;
+  font-size:14px;
+}
+
+.outcome p{
+  margin:0;
+  font-size:12.8px;
+  color:var(--muted);
+  line-height:1.55;
+}
 
     /* Footer */
     footer{
@@ -403,6 +441,62 @@
         </div>
       </div>
     </section>
+    <section class="card section pad">
+  <h3 style="margin:0 0 12px; font-size:16px;">
+    რას შეძლებ კურსის დასრულების შემდეგ
+  </h3>
+
+  <div class="outcomes">
+    <div class="outcome">
+      <i class="bi bi-file-earmark-text"></i>
+      <h4>საბუღალტრო დოკუმენტებთან მუშაობა</h4>
+      <p>
+        შეძლებ ინვოისების, ხელშეკრულებების და საბაზისო დოკუმენტაციის სწორად შევსებას.
+      </p>
+    </div>
+
+    <div class="outcome">
+      <i class="bi bi-calculator"></i>
+      <h4>ბუღალტერთან და კომპანიასთან მუშაობა</h4>
+      <p>
+        გაიგებ როგორ ხდება ბუღალტრული პროცესები რეალურ კომპანიებში და როგორ ჩაერთო სამუშაოში.
+      </p>
+    </div>
+
+    <div class="outcome">
+      <i class="bi bi-bar-chart"></i>
+      <h4>საბაზისო ფინანსური ანალიზი</h4>
+      <p>
+        შემოსავალი, ხარჯი, მოგება — მარტივად და პრაქტიკულად.
+      </p>
+    </div>
+
+    <div class="outcome">
+      <i class="bi bi-briefcase"></i>
+      <h4>სამუშაოსთვის საჭირო საფუძვლები</h4>
+      <p>
+        მიიღებ ცოდნას, რომელიც დაგეხმარება სტაჟირებაში ან დამწყებ პოზიციაზე.
+      </p>
+    </div>
+
+    <div class="outcome">
+      <i class="bi bi-journal-check"></i>
+      <h4>სტრუქტურირებული ცოდნა</h4>
+      <p>
+        ყველაფერი ახსნილია ნაბიჯ-ნაბიჯ — დამწყებთათვის მარტივად.
+      </p>
+    </div>
+
+    <div class="outcome">
+      <i class="bi bi-award"></i>
+      <h4>სერტიფიკატი</h4>
+      <p>
+        კურსის დასრულების შემდეგ მიიღებ სერტიფიკატს (სურვილისამებრ).
+      </p>
+    </div>
+  </div>
+</section>
+
 
     <!-- COURSES (like “selected courses” section style) -->
     <section id="courses" class="card section pad">
@@ -611,6 +705,7 @@ if (ctaWA) ctaWA.href = waLink(introMsg);
 </div>
 </body>
 </html>
+
 
 
 
