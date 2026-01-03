@@ -490,70 +490,64 @@
   </div>
 
   <script>
-    const BUSINESS = {
-      city: "ბათუმი",
-      phoneInternational: "+995574323377",
-      whatsappNumber: "995574323377", // digits only for wa.me
-      facebookUrl: "https://www.facebook.com/p/Bapa-Academy-61563066155391/"
-    };
+  const BUSINESS = {
+    city: "ბათუმი",
+    phoneInternational: "+995574323377",
+    whatsappNumber: "995574323377", // digits only for wa.me
+    facebookUrl: "https://www.facebook.com/p/Bapa-Academy-61563066155391/"
+  };
 
-    const PRICE_3M = 745;
-    const PRICE_YEAR = 600;
+  const btnFacebook = document.getElementById("btnFacebook");
+  if (btnFacebook) btnFacebook.href = BUSINESS.facebookUrl;
 
-    const btnFacebook = document.getElementById("btnFacebook");
-    if (btnFacebook) btnFacebook.href = BUSINESS.facebookUrl;
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  function waLink(text) {
+    return `https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent(text)}`;
+  }
 
-    function waLink(text){
-      return `https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent(text)}`;
-    }
-    const btnCallFloat = document.getElementById("btnCallFloat");
-    if (btnCallFloat) btnCallFloat.href = `tel:${BUSINESS.phoneInternational}`;
+  const introMsg = "გამარჯობა! მაინტერესებს ბუღალტერიის კურსი ბათუმში. გთხოვთ მითხრათ გრაფიკი და დაწყების თარიღი.";
 
-    const introMsg = `გამარჯობა! მაინტერესებს ბუღალტერიის კურსი ბათუმში. გთხოვთ მითხრათ გრაფიკი და დაწყების თარიღი.`;
-    const w1 = document.getElementById("btnWhatsApp");
-]   const w2 = document.getElementById("btnWhatsApp2");
-    if (w1) w1.href = waLink(introMsg);
-    if (w2) w2.href = waLink(introMsg);
+  const w1 = document.getElementById("btnWhatsApp");
+  const w2 = document.getElementById("btnWhatsApp2");
+  if (w1) w1.href = waLink(introMsg);
+  if (w2) w2.href = waLink(introMsg);
 
-    // Simple counter animation (optional)
-    const counters = document.querySelectorAll(".num[data-target]");
-    const startCounters = () => {
-      counters.forEach(el => {
-        const target = Number(el.dataset.target || 0);
-        let cur = 0;
-        const steps = 36;
-        const inc = target / steps;
-        const tick = () => {
-          cur += inc;
-          if (cur >= target) { el.textContent = String(target); return; }
-          el.textContent = String(Math.max(0, Math.floor(cur)));
-          requestAnimationFrame(tick);
-        };
-        tick();
-      });
-    };
+  const btnCallFloat = document.getElementById("btnCallFloat");
+  if (btnCallFloat) btnCallFloat.href = `tel:${BUSINESS.phoneInternational}`;
 
-    // Start when visible
-    const obs = new IntersectionObserver((entries) => {
-      if (entries.some(e => e.isIntersecting)) { startCounters(); obs.disconnect(); }
-    }, { threshold: 0.2 });
-    const block = document.getElementById("counters");
-    if (block) obs.observe(block);
-     <!-- Floating Call Button -->
-<a
-  id="btnCallFloat"
-  class="call-float"
-  href="#"
-  aria-label="დარეკვა"
-></a>
-  </script>
+  // Counter animation
+  const counters = document.querySelectorAll(".num[data-target]");
+  const startCounters = () => {
+    counters.forEach(el => {
+      const target = Number(el.dataset.target || 0);
+      let cur = 0;
+      const steps = 36;
+      const inc = target / steps;
+
+      const tick = () => {
+        cur += inc;
+        if (cur >= target) { el.textContent = String(target); return; }
+        el.textContent = String(Math.max(0, Math.floor(cur)));
+        requestAnimationFrame(tick);
+      };
+      tick();
+    });
+  };
+
+  const obs = new IntersectionObserver((entries) => {
+    if (entries.some(e => e.isIntersecting)) { startCounters(); obs.disconnect(); }
+  }, { threshold: 0.2 });
+
+  const block = document.getElementById("counters");
+  if (block) obs.observe(block);
+</script>
   <a id="btnCallFloat" class="call-float" href="#" aria-label="დარეკვა">
   <i class="bi bi-telephone-fill"></i>
   <span>დარეკვა</span>
 </a>
 </body>
 </html>
+
 
